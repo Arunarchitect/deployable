@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     #Internal Apps
     'users',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,7 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = 'users.UserAccount'
+
+# media settings
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
