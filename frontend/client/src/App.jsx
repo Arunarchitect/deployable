@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {checkAuth} from './features/user'
 import BlogPage from './containers/BlogPage';
+import Payment from './containers/Payment';
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const App = () => {
 				<Route path='/login' element={<LoginPage />} />
 				<Route path='/register' element={<RegisterPage />} />
 				<Route path='/blog' element={<BlogPage />} />
+				<Route path='/payment' element={<Payment />} />
 			</Routes>
 		</Router>
 	);
