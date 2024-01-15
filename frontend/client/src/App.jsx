@@ -8,6 +8,7 @@ import Test from './containers/Test';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {checkAuth} from './features/user'
+import BlogPage from './containers/BlogPage';
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const App = () => {
 				<Route path='/dashboard' element={<DashboardPage />} />
 				<Route path='/login' element={<LoginPage />} />
 				<Route path='/register' element={<RegisterPage />} />
+				<Route path='/blog' element={<BlogPage />} />
 			</Routes>
 		</Router>
 	);

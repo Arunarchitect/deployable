@@ -15,10 +15,20 @@ class BlogView(APIView):
             return Response({'msg': 'Posted', 'status': 'success', 'blog': serializer.data}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    def get(self, request, format=None):
-        blogs = Blog.objects.all()
-        serializer = BlogSerializer(blogs, many=True)
-        return Response({'status': 'success', 'blogs': serializer.data}, status=status.HTTP_200_OK)
+    def get(self, request, pk=None, format=None):
+        if pk is not None:
+            # If pk is provided, retrieve a specific blog
+            try:
+                blog = Blog.objects.get(pk=pk)
+                serializer = BlogSerializer(blog)
+                return Response({'status': 'success', 'blog': serializer.data}, status=status.HTTP_200_OK)
+            except Blog.DoesNotExist:
+                return Response({'status': 'error', 'message': 'Blog not found'}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            # If pk is not provided, retrieve all blogs
+            blogs = Blog.objects.all()
+            serializer = BlogSerializer(blogs, many=True)
+            return Response({'status': 'success', 'blogs': serializer.data}, status=status.HTTP_200_OK)
     
     def delete(self, request, pk, format=None):
         try:

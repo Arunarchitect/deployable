@@ -8,15 +8,12 @@ const path = require('path');
 
 require('dotenv').config();
 
-
 const registerRoute = require('./routes/auth/register');
 const loginRoute = require('./routes/auth/login');
 const meRoute = require('./routes/auth/me');
 const logoutRoute = require('./routes/auth/logout');
 const verifyRoute = require('./routes/auth/verify');
-
-
-
+const getblogRoute = require('./routes/blog/getblog');
 
 const app = express();
 
@@ -32,6 +29,9 @@ app.use(meRoute);
 app.use(registerRoute);
 app.use(logoutRoute);
 app.use(verifyRoute);
+
+
+app.use(getblogRoute);
 
 app.use(express.static('client/dist'));
 app.get('*', (req, res) => {

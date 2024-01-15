@@ -63,6 +63,11 @@ const Navbar = () => {
 								Home
 							</NavLink>
 						</li>
+						<li className='nav-item'>
+							<NavLink className='nav-link' to='/blog'>
+								Blog
+							</NavLink>
+						</li>
 
 						{isAuthenticated ? authLinks : guestLinks}
 					</ul>
