@@ -27,7 +27,9 @@ const BlogPage = () => {
           <ul>
             {bloglist.map((blog) => (
               <li key={blog.id}>
-                <h2>{blog.title}</h2>
+                <Link to={`/${blog.id}`}>
+                  <h2>{blog.title}</h2>
+                </Link>
                 <p>{blog.content}</p>
                 <img src={`${import.meta.env.VITE_APP_API_URL}${blog.image}`} alt={blog.title} />
               </li>

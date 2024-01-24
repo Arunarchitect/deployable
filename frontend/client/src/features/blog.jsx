@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const getBlog = createAsyncThunk('users/me',  async(_, thunkAPI) => {
+export const getBlog = createAsyncThunk('blog/list',  async(_, thunkAPI) => {
   try {
     const res = await fetch('api/blog/list', {
       method: 'GET',
