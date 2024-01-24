@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const getBlog = createAsyncThunk('blog/list',  async(_, thunkAPI) => {
+export const getBlog = createAsyncThunk('apiblog/list',  async(_, thunkAPI) => {
   try {
-    const res = await fetch('api/blog/list', {
+    const res = await fetch('apiblog/list', {
       method: 'GET',
       headers: {
         Accept: 'application/json'

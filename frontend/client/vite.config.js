@@ -8,7 +8,8 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": "http://localhost:5000",
-      "/order": "http://localhost:5000"
+      "/order": "http://localhost:5000",
+      "/apiblog": "https://api.modelflick.com:5000",
     },
   },
 });
